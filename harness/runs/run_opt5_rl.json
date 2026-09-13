@@ -1,0 +1,1084 @@
+{
+  "at": "2026-09-13T18:02:52.299Z",
+  "duration_s": 60,
+  "pass": true,
+  "score": 0.952,
+  "metrics": {
+    "engage_rate": 1,
+    "engage_trials": 6,
+    "melee_median_ms": 753,
+    "melee_dps_ok": 1,
+    "hits_landed": 25,
+    "distinct_hit_ids": 8,
+    "multi_mob_hit": 1,
+    "multi_mob_presence": 1,
+    "flee_rate": 0.857,
+    "flee_trials": 7,
+    "flee_wins": 6,
+    "wander_ok": 0.55,
+    "survival_s": 59.26,
+    "survival_ok": 1,
+    "death_count": 3,
+    "stability_ok": 1,
+    "nan_or_invalid_signals": 33,
+    "kicked": false,
+    "sample_count": 244,
+    "attack_events": 25,
+    "obs_hurt_events": 0,
+    "no_resist": true,
+    "elevation": false,
+    "ablation": false
+  },
+  "thresholds": {
+    "score": 0.72,
+    "hits_landed_min": 4,
+    "engage_min": 0.5,
+    "melee_ok_min": 0.5,
+    "flee_min": 0.5,
+    "flee_trials_min": 1,
+    "survival_ok_min": 0.4
+  },
+  "decisions": [
+    {
+      "t": 1789322512295,
+      "program": "flee",
+      "hp": 10,
+      "dist": null
+    },
+    {
+      "t": 1789322512295,
+      "program": "flee",
+      "hp": 11,
+      "dist": null
+    },
+    {
+      "t": 1789322512492,
+      "program": "flee",
+      "hp": 20,
+      "dist": 2.77
+    },
+    {
+      "t": 1789322512790,
+      "program": "flee",
+      "hp": 20,
+      "dist": 3.97
+    },
+    {
+      "t": 1789322513182,
+      "program": "fight",
+      "hp": 20,
+      "dist": 6.01
+    },
+    {
+      "t": 1789322513485,
+      "program": "fight",
+      "hp": 20,
+      "dist": 5.07
+    },
+    {
+      "t": 1789322513893,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.43
+    },
+    {
+      "t": 1789322514163,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.02
+    },
+    {
+      "t": 1789322514550,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.82
+    },
+    {
+      "t": 1789322514894,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.22
+    },
+    {
+      "t": 1789322515216,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.43
+    },
+    {
+      "t": 1789322515629,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.36
+    },
+    {
+      "t": 1789322515970,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.91
+    },
+    {
+      "t": 1789322516332,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.71
+    },
+    {
+      "t": 1789322516662,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.6
+    },
+    {
+      "t": 1789322516980,
+      "program": "fight",
+      "hp": 18.5,
+      "dist": 2.49
+    },
+    {
+      "t": 1789322517469,
+      "program": "fight",
+      "hp": 18.5,
+      "dist": 0.85
+    },
+    {
+      "t": 1789322517666,
+      "program": "fight",
+      "hp": 18.5,
+      "dist": 1.27
+    },
+    {
+      "t": 1789322518034,
+      "program": "fight",
+      "hp": 15,
+      "dist": 1.63
+    },
+    {
+      "t": 1789322518420,
+      "program": "fight",
+      "hp": 15,
+      "dist": 1.21
+    },
+    {
+      "t": 1789322518769,
+      "program": "flee",
+      "hp": 11.5,
+      "dist": 2.2
+    },
+    {
+      "t": 1789322519091,
+      "program": "flee",
+      "hp": 11.5,
+      "dist": 3.38
+    },
+    {
+      "t": 1789322519425,
+      "program": "flee",
+      "hp": 12.5,
+      "dist": 4.25
+    },
+    {
+      "t": 1789322519790,
+      "program": "flee",
+      "hp": 12.5,
+      "dist": 5.07
+    },
+    {
+      "t": 1789322520145,
+      "program": "fight",
+      "hp": 12.5,
+      "dist": 6.11
+    },
+    {
+      "t": 1789322520509,
+      "program": "fight",
+      "hp": 12.5,
+      "dist": 4.33
+    },
+    {
+      "t": 1789322520858,
+      "program": "fight",
+      "hp": 12.5,
+      "dist": 2.51
+    },
+    {
+      "t": 1789322521275,
+      "program": "fight",
+      "hp": 12.5,
+      "dist": 1.39
+    },
+    {
+      "t": 1789322521561,
+      "program": "flee",
+      "hp": 9,
+      "dist": 0.53
+    },
+    {
+      "t": 1789322521888,
+      "program": "flee",
+      "hp": 9,
+      "dist": 1.7
+    },
+    {
+      "t": 1789322522307,
+      "program": "flee",
+      "hp": 10,
+      "dist": 3.85
+    },
+    {
+      "t": 1789322522628,
+      "program": "flee",
+      "hp": 10,
+      "dist": 4.87
+    },
+    {
+      "t": 1789322522914,
+      "program": "fight",
+      "hp": 10,
+      "dist": 4.5
+    },
+    {
+      "t": 1789322523345,
+      "program": "fight",
+      "hp": 10,
+      "dist": 2.64
+    },
+    {
+      "t": 1789322523705,
+      "program": "fight",
+      "hp": 10,
+      "dist": 2.29
+    },
+    {
+      "t": 1789322524044,
+      "program": "fight",
+      "hp": 6.5,
+      "dist": 0.92
+    },
+    {
+      "t": 1789322524495,
+      "program": "flee",
+      "hp": 6.5,
+      "dist": 1.86
+    },
+    {
+      "t": 1789322524704,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": 3.46
+    },
+    {
+      "t": 1789322525056,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": 4.34
+    },
+    {
+      "t": 1789322525439,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": 5.67
+    },
+    {
+      "t": 1789322525817,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": 6.17
+    },
+    {
+      "t": 1789322526121,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": 6.85
+    },
+    {
+      "t": 1789322526430,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": 7.54
+    },
+    {
+      "t": 1789322526830,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": 8.3
+    },
+    {
+      "t": 1789322527221,
+      "program": "flee",
+      "hp": 8.5,
+      "dist": 7.75
+    },
+    {
+      "t": 1789322527541,
+      "program": "flee",
+      "hp": 8.5,
+      "dist": 6.69
+    },
+    {
+      "t": 1789322527913,
+      "program": "fight",
+      "hp": 8.5,
+      "dist": 5.74
+    },
+    {
+      "t": 1789322528197,
+      "program": "fight",
+      "hp": 8.5,
+      "dist": 3.71
+    },
+    {
+      "t": 1789322528599,
+      "program": "fight",
+      "hp": 5,
+      "dist": 1.3
+    },
+    {
+      "t": 1789322528916,
+      "program": "flee",
+      "hp": 5,
+      "dist": 2.08
+    },
+    {
+      "t": 1789322529251,
+      "program": "flee",
+      "hp": 5,
+      "dist": 3.57
+    },
+    {
+      "t": 1789322529660,
+      "program": "flee",
+      "hp": 6,
+      "dist": 3.15
+    },
+    {
+      "t": 1789322530011,
+      "program": "flee",
+      "hp": 6,
+      "dist": 2.4
+    },
+    {
+      "t": 1789322530483,
+      "program": "flee",
+      "hp": 6,
+      "dist": 3.02
+    },
+    {
+      "t": 1789322530707,
+      "program": "flee",
+      "hp": 6,
+      "dist": 3.9
+    },
+    {
+      "t": 1789322530991,
+      "program": "flee",
+      "hp": 6,
+      "dist": 4.36
+    },
+    {
+      "t": 1789322531432,
+      "program": "flee",
+      "hp": 6,
+      "dist": 5.42
+    },
+    {
+      "t": 1789322531705,
+      "program": "flee",
+      "hp": 6,
+      "dist": 5.61
+    },
+    {
+      "t": 1789322532091,
+      "program": "flee",
+      "hp": 7,
+      "dist": 6.1
+    },
+    {
+      "t": 1789322532458,
+      "program": "flee",
+      "hp": 7,
+      "dist": 6.63
+    },
+    {
+      "t": 1789322532782,
+      "program": "flee",
+      "hp": 7,
+      "dist": 6.19
+    },
+    {
+      "t": 1789322533141,
+      "program": "flee",
+      "hp": 7,
+      "dist": 5.55
+    },
+    {
+      "t": 1789322533476,
+      "program": "flee",
+      "hp": 7,
+      "dist": 5.92
+    },
+    {
+      "t": 1789322533808,
+      "program": "flee",
+      "hp": 7,
+      "dist": 6.26
+    },
+    {
+      "t": 1789322534177,
+      "program": "flee",
+      "hp": 7,
+      "dist": 6.7
+    },
+    {
+      "t": 1789322534511,
+      "program": "flee",
+      "hp": 8,
+      "dist": 7.41
+    },
+    {
+      "t": 1789322534890,
+      "program": "flee",
+      "hp": 8,
+      "dist": 7.95
+    },
+    {
+      "t": 1789322535224,
+      "program": "flee",
+      "hp": 8,
+      "dist": 7.64
+    },
+    {
+      "t": 1789322535617,
+      "program": "flee",
+      "hp": 8,
+      "dist": 6.93
+    },
+    {
+      "t": 1789322535932,
+      "program": "flee",
+      "hp": 8,
+      "dist": 6.3
+    },
+    {
+      "t": 1789322536281,
+      "program": "flee",
+      "hp": 8,
+      "dist": 5.78
+    },
+    {
+      "t": 1789322536666,
+      "program": "flee",
+      "hp": 8,
+      "dist": 6.1
+    },
+    {
+      "t": 1789322536977,
+      "program": "flee",
+      "hp": 9,
+      "dist": 6.62
+    },
+    {
+      "t": 1789322537327,
+      "program": "flee",
+      "hp": 9,
+      "dist": 7.21
+    },
+    {
+      "t": 1789322537638,
+      "program": "fight",
+      "hp": 9,
+      "dist": 7.57
+    },
+    {
+      "t": 1789322537993,
+      "program": "fight",
+      "hp": 9,
+      "dist": 6.04
+    },
+    {
+      "t": 1789322538333,
+      "program": "fight",
+      "hp": 9,
+      "dist": 4.61
+    },
+    {
+      "t": 1789322538690,
+      "program": "fight",
+      "hp": 9,
+      "dist": 2
+    },
+    {
+      "t": 1789322539086,
+      "program": "fight",
+      "hp": 9,
+      "dist": null
+    },
+    {
+      "t": 1789322539458,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789322539911,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789322540113,
+      "program": "fight",
+      "hp": 18,
+      "dist": 2.42
+    },
+    {
+      "t": 1789322540438,
+      "program": "fight",
+      "hp": 18.8,
+      "dist": 2.27
+    },
+    {
+      "t": 1789322540801,
+      "program": "fight",
+      "hp": 18.8,
+      "dist": 1.71
+    },
+    {
+      "t": 1789322541143,
+      "program": "fight",
+      "hp": 16,
+      "dist": 2.89
+    },
+    {
+      "t": 1789322541491,
+      "program": "fight",
+      "hp": 16.5,
+      "dist": 2.2
+    },
+    {
+      "t": 1789322541858,
+      "program": "fight",
+      "hp": 16.5,
+      "dist": 1.91
+    },
+    {
+      "t": 1789322542193,
+      "program": "fight",
+      "hp": 16.8,
+      "dist": 2.01
+    },
+    {
+      "t": 1789322542553,
+      "program": "fight",
+      "hp": 14.7,
+      "dist": 0.92
+    },
+    {
+      "t": 1789322542913,
+      "program": "fight",
+      "hp": 11.3,
+      "dist": 0.75
+    },
+    {
+      "t": 1789322543263,
+      "program": "flee",
+      "hp": 11.3,
+      "dist": 2.08
+    },
+    {
+      "t": 1789322543588,
+      "program": "flee",
+      "hp": 8,
+      "dist": 3
+    },
+    {
+      "t": 1789322543927,
+      "program": "flee",
+      "hp": 8.2,
+      "dist": 4.69
+    },
+    {
+      "t": 1789322544336,
+      "program": "flee",
+      "hp": 8.2,
+      "dist": 5.36
+    },
+    {
+      "t": 1789322544737,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 4.56
+    },
+    {
+      "t": 1789322545065,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 4.34
+    },
+    {
+      "t": 1789322545382,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 4.43
+    },
+    {
+      "t": 1789322545759,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 4.37
+    },
+    {
+      "t": 1789322546089,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 5.12
+    },
+    {
+      "t": 1789322546454,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 5.79
+    },
+    {
+      "t": 1789322546773,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 6.23
+    },
+    {
+      "t": 1789322547134,
+      "program": "flee",
+      "hp": 9.2,
+      "dist": 5.45
+    },
+    {
+      "t": 1789322547517,
+      "program": "flee",
+      "hp": 10.2,
+      "dist": 5.6
+    },
+    {
+      "t": 1789322547800,
+      "program": "flee",
+      "hp": 10.2,
+      "dist": 5.8
+    },
+    {
+      "t": 1789322548165,
+      "program": "flee",
+      "hp": 11.2,
+      "dist": 6.56
+    },
+    {
+      "t": 1789322548518,
+      "program": "flee",
+      "hp": 11.2,
+      "dist": 6.77
+    },
+    {
+      "t": 1789322548878,
+      "program": "flee",
+      "hp": 11.2,
+      "dist": 7.87
+    },
+    {
+      "t": 1789322549212,
+      "program": "fight",
+      "hp": 11.2,
+      "dist": 7.74
+    },
+    {
+      "t": 1789322549577,
+      "program": "flee",
+      "hp": 11.2,
+      "dist": 5.97
+    },
+    {
+      "t": 1789322549907,
+      "program": "flee",
+      "hp": 12.2,
+      "dist": 6.38
+    },
+    {
+      "t": 1789322550252,
+      "program": "flee",
+      "hp": 12.2,
+      "dist": 6.02
+    },
+    {
+      "t": 1789322550609,
+      "program": "flee",
+      "hp": 12.2,
+      "dist": 5.37
+    },
+    {
+      "t": 1789322550986,
+      "program": "flee",
+      "hp": 12.2,
+      "dist": 5.2
+    },
+    {
+      "t": 1789322551313,
+      "program": "flee",
+      "hp": 12.2,
+      "dist": 5.88
+    },
+    {
+      "t": 1789322551670,
+      "program": "flee",
+      "hp": 12.2,
+      "dist": 5.97
+    },
+    {
+      "t": 1789322552007,
+      "program": "flee",
+      "hp": 13.2,
+      "dist": 6.19
+    },
+    {
+      "t": 1789322552373,
+      "program": "flee",
+      "hp": 14.2,
+      "dist": 7.2
+    },
+    {
+      "t": 1789322552718,
+      "program": "flee",
+      "hp": 14.2,
+      "dist": 7.87
+    },
+    {
+      "t": 1789322553059,
+      "program": "fight",
+      "hp": 14.2,
+      "dist": 7.54
+    },
+    {
+      "t": 1789322553440,
+      "program": "fight",
+      "hp": 14.2,
+      "dist": 4.67
+    },
+    {
+      "t": 1789322553793,
+      "program": "fight",
+      "hp": 14.2,
+      "dist": 2.91
+    },
+    {
+      "t": 1789322554149,
+      "program": "flee",
+      "hp": 10.7,
+      "dist": 2.81
+    },
+    {
+      "t": 1789322554487,
+      "program": "flee",
+      "hp": 11.7,
+      "dist": 4.83
+    },
+    {
+      "t": 1789322554825,
+      "program": "flee",
+      "hp": 11.7,
+      "dist": 5.74
+    },
+    {
+      "t": 1789322555164,
+      "program": "flee",
+      "hp": 11.7,
+      "dist": 6.6
+    },
+    {
+      "t": 1789322555541,
+      "program": "flee",
+      "hp": 11.7,
+      "dist": 7.02
+    },
+    {
+      "t": 1789322555916,
+      "program": "flee",
+      "hp": 11.7,
+      "dist": 7.96
+    },
+    {
+      "t": 1789322556249,
+      "program": "flee",
+      "hp": 11.7,
+      "dist": 8.92
+    },
+    {
+      "t": 1789322556572,
+      "program": "fight",
+      "hp": 11.7,
+      "dist": 8.77
+    },
+    {
+      "t": 1789322556967,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 6.2
+    },
+    {
+      "t": 1789322557297,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 6.56
+    },
+    {
+      "t": 1789322557636,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 6.81
+    },
+    {
+      "t": 1789322558003,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 7.2
+    },
+    {
+      "t": 1789322558332,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 6.64
+    },
+    {
+      "t": 1789322558684,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 5.94
+    },
+    {
+      "t": 1789322559062,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 4.99
+    },
+    {
+      "t": 1789322559395,
+      "program": "flee",
+      "hp": 12.7,
+      "dist": 3.84
+    },
+    {
+      "t": 1789322559769,
+      "program": "flee",
+      "hp": 13.7,
+      "dist": 2.48
+    },
+    {
+      "t": 1789322560087,
+      "program": "flee",
+      "hp": 10.2,
+      "dist": 1.62
+    },
+    {
+      "t": 1789322560445,
+      "program": "flee",
+      "hp": 11.2,
+      "dist": 0.99
+    },
+    {
+      "t": 1789322560780,
+      "program": "flee",
+      "hp": 7.7,
+      "dist": 0.75
+    },
+    {
+      "t": 1789322561149,
+      "program": "flee",
+      "hp": 7.7,
+      "dist": 0.95
+    },
+    {
+      "t": 1789322561526,
+      "program": "flee",
+      "hp": 4.2,
+      "dist": 0.99
+    },
+    {
+      "t": 1789322561869,
+      "program": "flee",
+      "hp": 0.7,
+      "dist": 1.07
+    },
+    {
+      "t": 1789322562201,
+      "program": "flee",
+      "hp": 0.7,
+      "dist": 1.06
+    },
+    {
+      "t": 1789322562916,
+      "program": "flee",
+      "hp": 20,
+      "dist": 9.68
+    },
+    {
+      "t": 1789322562938,
+      "program": "flee",
+      "hp": 20,
+      "dist": 1.95
+    },
+    {
+      "t": 1789322563234,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.32
+    },
+    {
+      "t": 1789322563609,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.57
+    },
+    {
+      "t": 1789322563981,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.26
+    },
+    {
+      "t": 1789322564317,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.07
+    },
+    {
+      "t": 1789322564640,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.97
+    },
+    {
+      "t": 1789322564996,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.83
+    },
+    {
+      "t": 1789322565331,
+      "program": "fight",
+      "hp": 18,
+      "dist": 2.7
+    },
+    {
+      "t": 1789322565698,
+      "program": "fight",
+      "hp": 18.8,
+      "dist": 0.92
+    },
+    {
+      "t": 1789322566061,
+      "program": "fight",
+      "hp": 16,
+      "dist": 0.69
+    },
+    {
+      "t": 1789322566425,
+      "program": "fight",
+      "hp": 16,
+      "dist": 1.45
+    },
+    {
+      "t": 1789322566733,
+      "program": "flee",
+      "hp": 13,
+      "dist": 0.88
+    },
+    {
+      "t": 1789322567081,
+      "program": "flee",
+      "hp": 13.3,
+      "dist": 1.74
+    },
+    {
+      "t": 1789322567469,
+      "program": "flee",
+      "hp": 13.3,
+      "dist": 2.99
+    },
+    {
+      "t": 1789322567821,
+      "program": "flee",
+      "hp": 14.7,
+      "dist": 2.86
+    },
+    {
+      "t": 1789322568167,
+      "program": "flee",
+      "hp": 14.8,
+      "dist": 2.19
+    },
+    {
+      "t": 1789322568518,
+      "program": "fight",
+      "hp": 15,
+      "dist": 1.77
+    },
+    {
+      "t": 1789322568864,
+      "program": "fight",
+      "hp": 11.5,
+      "dist": 2.14
+    },
+    {
+      "t": 1789322569196,
+      "program": "flee",
+      "hp": 11.5,
+      "dist": 1.1
+    },
+    {
+      "t": 1789322569556,
+      "program": "flee",
+      "hp": 8,
+      "dist": 1.02
+    },
+    {
+      "t": 1789322569940,
+      "program": "flee",
+      "hp": 8,
+      "dist": 1.37
+    },
+    {
+      "t": 1789322570277,
+      "program": "flee",
+      "hp": 5.5,
+      "dist": 1.07
+    },
+    {
+      "t": 1789322570603,
+      "program": "flee",
+      "hp": 5.5,
+      "dist": 1.31
+    },
+    {
+      "t": 1789322570949,
+      "program": "flee",
+      "hp": 2,
+      "dist": 0.65
+    },
+    {
+      "t": 1789322571302,
+      "program": "flee",
+      "hp": 2,
+      "dist": 0.92
+    },
+    {
+      "t": 1789322571921,
+      "program": "flee",
+      "hp": 20,
+      "dist": 10.15
+    },
+    {
+      "t": 1789322572013,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.8
+    }
+  ],
+  "sample_count": 244,
+  "hit_events": 25,
+  "note": "Opt5 upgraded harness: multi-mob, no-resist survival, flee required in main score (no optimistic flee default)."
+}

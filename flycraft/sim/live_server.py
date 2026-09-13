@@ -116,6 +116,19 @@ class LiveController:
         )
         self.step = 0
         self.state = DecisionState(mode_since=_now_ms())
+        self.rl_bias = {"fight": 0.0, "flee": 0.0, "idle": 0.0}
+        if os.environ.get("FLYCRAFT_RL", "").strip().lower() in {"1", "true", "yes"}:
+            bias_path = Path(os.environ.get(
+                "FLYCRAFT_RL_BIAS",
+                str(Path(__file__).resolve().parents[2] / "artifacts" / "rl_bias.json"),
+            ))
+            if bias_path.is_file():
+                try:
+                    payload = json.loads(bias_path.read_text(encoding="utf-8"))
+                    self.rl_bias.update({k: float(v) for k, v in payload.get("bias", {}).items()
+                                        if k in self.rl_bias})
+                except Exception:
+                    pass
 
     def _pick_target(self, obs: dict[str, Any]) -> dict[str, Any] | None:
         hostiles = obs.get("hostiles") or []
@@ -292,6 +305,11 @@ class LiveController:
         else:
             scores["idle"] = scores.get("idle", 0.0) + th.idle_floor
             reason = "clear"
+
+        # Optional light RL bias on motor scores
+        if any(abs(v) > 1e-9 for v in self.rl_bias.values()):
+            for k, v in self.rl_bias.items():
+                scores[k] = scores.get(k, 0.0) + v
 
         # During reengage, force program toward fight (approach) not idle
         program = self.decoder.pick(scores)

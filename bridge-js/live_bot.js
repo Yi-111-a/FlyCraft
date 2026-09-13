@@ -140,6 +140,10 @@ function listHostiles (maxDist = 24) {
     if (!entity || entity === bot.entity || !finitePos(entity.position)) continue
     const name = String(entity.name || '').toLowerCase()
     if (!HOSTILES.has(name)) continue
+    // Drop dead / unloaded husks so surrounding_count stays honest
+    const hpMeta = entity.metadata?.[9]
+    if (typeof hpMeta === 'number' && hpMeta <= 0) continue
+    if (entity.isValid === false) continue
     const d = bot.entity.position.distanceTo(entity.position)
     if (!Number.isFinite(d) || d > maxDist) continue
     out.push({ entity, dist: d, name })

@@ -1,0 +1,25 @@
+{
+  "bias": {
+    "fight": 0.3419472018380134,
+    "flee": -0.007982589609881258,
+    "idle": -0.33396461222813206
+  },
+  "final_avg_r": 0.040000000000000015,
+  "history_tail": [
+    -0.2,
+    0.28,
+    0.27999999999999997,
+    0.039999999999999994,
+    0.040000000000000015
+  ],
+  "steps": 20,
+  "kept": false,
+  "note": "Candidate only \u2014 keep iff live harness score improves vs baseline.",
+  "harness_compare": {
+    "baseline_run": "harness/runs/run_opt5_base.json",
+    "baseline_score": 0.977,
+    "rl_run": "harness/runs/run_opt5_rl.json",
+    "rl_score": 0.952,
+    "decision": "discard \u2014 RL did not improve harness score"
+  }
+}
