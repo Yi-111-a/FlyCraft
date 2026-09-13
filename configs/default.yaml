@@ -1,0 +1,41 @@
+# FlyCraft MaleCNS real-subgraph config (VPS demo)
+graph:
+  path: data/malecns/subgraph_fight.json
+  shuffle_weights: false
+  seed: 42
+
+dynamics:
+  model: rate
+  dt: 0.05
+  tau: 0.1
+  threshold: 1.0
+  reset: 0.0
+  leak: 0.9
+  noise_std: 0.01
+
+encode:
+  event_gain: 2.5
+  decay: 0.85
+
+decode:
+  temperature: 1.0
+  idle_bias: 0.02
+
+loop:
+  steps: 5
+  substeps: 8
+  events:
+    - light_on
+    - player_near
+    - attack
+    - food_near
+    - hostile_near
+    - blank
+
+live:
+  # Minimal safety floors so graph activity can win more often
+  low_health: 9.0
+  fight_distance: 10.0
+  flee_floor: 0.35
+  fight_floor: 0.25
+  idle_floor: 0.15

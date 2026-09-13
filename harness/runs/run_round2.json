@@ -1,0 +1,105 @@
+{
+  "at": "2026-09-13T16:55:06.975Z",
+  "duration_s": 60,
+  "pass": false,
+  "score": 0.652,
+  "metrics": {
+    "engage_rate": 1,
+    "engage_trials": 0,
+    "melee_median_ms": 701,
+    "melee_dps_ok": 1,
+    "hits_landed": 0,
+    "flee_rate": 0.55,
+    "flee_trials": 0,
+    "wander_ok": 0.7,
+    "stability_ok": 1,
+    "nan_or_invalid_signals": 9,
+    "kicked": false,
+    "sample_count": 24,
+    "attack_events": 6,
+    "obs_hurt_events": 0
+  },
+  "thresholds": {
+    "score": 0.75,
+    "hits_landed_min": 4,
+    "engage_min": 0.5,
+    "melee_ok_min": 0.5
+  },
+  "decisions": [
+    {
+      "t": 1789318446972,
+      "program": "idle",
+      "hp": 18,
+      "dist": null
+    },
+    {
+      "t": 1789318447201,
+      "program": "fight",
+      "hp": 18.5,
+      "dist": 2.49
+    },
+    {
+      "t": 1789318447521,
+      "program": "fight",
+      "hp": 18.5,
+      "dist": 2.16
+    },
+    {
+      "t": 1789318447873,
+      "program": "fight",
+      "hp": 18.8,
+      "dist": 1.82
+    },
+    {
+      "t": 1789318448253,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.82
+    },
+    {
+      "t": 1789318448581,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.21
+    },
+    {
+      "t": 1789318448936,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.9
+    },
+    {
+      "t": 1789318449255,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.42
+    },
+    {
+      "t": 1789318449626,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.83
+    },
+    {
+      "t": 1789318449965,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.7
+    },
+    {
+      "t": 1789318450353,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.87
+    },
+    {
+      "t": 1789318450666,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.89
+    }
+  ],
+  "sample_count": 24,
+  "hit_events": 0,
+  "note": "Honest harness: PASS requires real hits ([fly] hit after attack) + stability + score>=0.75."
+}

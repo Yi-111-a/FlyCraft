@@ -1,0 +1,801 @@
+{
+  "at": "2026-09-13T17:16:25.251Z",
+  "duration_s": 60,
+  "pass": true,
+  "score": 0.932,
+  "metrics": {
+    "engage_rate": 1,
+    "engage_trials": 2,
+    "melee_median_ms": 704,
+    "melee_dps_ok": 1,
+    "hits_landed": 48,
+    "flee_rate": 0.55,
+    "flee_trials": 0,
+    "wander_ok": 1,
+    "stability_ok": 1,
+    "nan_or_invalid_signals": 19,
+    "kicked": false,
+    "sample_count": 243,
+    "attack_events": 60,
+    "obs_hurt_events": 0
+  },
+  "thresholds": {
+    "score": 0.75,
+    "hits_landed_min": 4,
+    "engage_min": 0.5,
+    "melee_ok_min": 0.5
+  },
+  "decisions": [
+    {
+      "t": 1789319725252,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319725460,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.34
+    },
+    {
+      "t": 1789319725816,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.15
+    },
+    {
+      "t": 1789319726170,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.37
+    },
+    {
+      "t": 1789319726495,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.36
+    },
+    {
+      "t": 1789319726866,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.93
+    },
+    {
+      "t": 1789319727188,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.89
+    },
+    {
+      "t": 1789319727561,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.95
+    },
+    {
+      "t": 1789319727901,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.32
+    },
+    {
+      "t": 1789319728249,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.97
+    },
+    {
+      "t": 1789319728589,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.13
+    },
+    {
+      "t": 1789319728944,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.15
+    },
+    {
+      "t": 1789319729306,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.9
+    },
+    {
+      "t": 1789319729645,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.6
+    },
+    {
+      "t": 1789319729999,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.43
+    },
+    {
+      "t": 1789319730396,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.06
+    },
+    {
+      "t": 1789319730728,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.93
+    },
+    {
+      "t": 1789319731042,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.92
+    },
+    {
+      "t": 1789319731389,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.89
+    },
+    {
+      "t": 1789319731750,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.01
+    },
+    {
+      "t": 1789319732109,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.37
+    },
+    {
+      "t": 1789319734201,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319735641,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.03
+    },
+    {
+      "t": 1789319735951,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.76
+    },
+    {
+      "t": 1789319736309,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.25
+    },
+    {
+      "t": 1789319736677,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.02
+    },
+    {
+      "t": 1789319737012,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.5
+    },
+    {
+      "t": 1789319737353,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.35
+    },
+    {
+      "t": 1789319737715,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.65
+    },
+    {
+      "t": 1789319738063,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.03
+    },
+    {
+      "t": 1789319738433,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.52
+    },
+    {
+      "t": 1789319738759,
+      "program": "fight",
+      "hp": 20,
+      "dist": 4.08
+    },
+    {
+      "t": 1789319739120,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.7
+    },
+    {
+      "t": 1789319739474,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.21
+    },
+    {
+      "t": 1789319739813,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.06
+    },
+    {
+      "t": 1789319740156,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.69
+    },
+    {
+      "t": 1789319740548,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.38
+    },
+    {
+      "t": 1789319740882,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.48
+    },
+    {
+      "t": 1789319741195,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.68
+    },
+    {
+      "t": 1789319741540,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.53
+    },
+    {
+      "t": 1789319741913,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.98
+    },
+    {
+      "t": 1789319742262,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.2
+    },
+    {
+      "t": 1789319744360,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319745767,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.82
+    },
+    {
+      "t": 1789319746129,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.94
+    },
+    {
+      "t": 1789319746489,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.91
+    },
+    {
+      "t": 1789319746820,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.86
+    },
+    {
+      "t": 1789319747184,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.42
+    },
+    {
+      "t": 1789319747533,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.91
+    },
+    {
+      "t": 1789319747895,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.42
+    },
+    {
+      "t": 1789319748205,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.62
+    },
+    {
+      "t": 1789319748581,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.66
+    },
+    {
+      "t": 1789319748941,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.01
+    },
+    {
+      "t": 1789319749270,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.2
+    },
+    {
+      "t": 1789319749626,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.07
+    },
+    {
+      "t": 1789319749973,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.97
+    },
+    {
+      "t": 1789319750473,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.74
+    },
+    {
+      "t": 1789319750666,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.45
+    },
+    {
+      "t": 1789319751027,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.23
+    },
+    {
+      "t": 1789319751393,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.75
+    },
+    {
+      "t": 1789319751737,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.95
+    },
+    {
+      "t": 1789319752082,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.34
+    },
+    {
+      "t": 1789319752445,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319754533,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319755625,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3
+    },
+    {
+      "t": 1789319755914,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.91
+    },
+    {
+      "t": 1789319756282,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.68
+    },
+    {
+      "t": 1789319756632,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.15
+    },
+    {
+      "t": 1789319757004,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.53
+    },
+    {
+      "t": 1789319757362,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.17
+    },
+    {
+      "t": 1789319757706,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.89
+    },
+    {
+      "t": 1789319758047,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.92
+    },
+    {
+      "t": 1789319758375,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.98
+    },
+    {
+      "t": 1789319758786,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.71
+    },
+    {
+      "t": 1789319759097,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.65
+    },
+    {
+      "t": 1789319759438,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.02
+    },
+    {
+      "t": 1789319759808,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.18
+    },
+    {
+      "t": 1789319760151,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.32
+    },
+    {
+      "t": 1789319760503,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.31
+    },
+    {
+      "t": 1789319760881,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.64
+    },
+    {
+      "t": 1789319761194,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.08
+    },
+    {
+      "t": 1789319761580,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.98
+    },
+    {
+      "t": 1789319761899,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.04
+    },
+    {
+      "t": 1789319762251,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.06
+    },
+    {
+      "t": 1789319762612,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319764739,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319765777,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.11
+    },
+    {
+      "t": 1789319766080,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.3
+    },
+    {
+      "t": 1789319766476,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.41
+    },
+    {
+      "t": 1789319766830,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.3
+    },
+    {
+      "t": 1789319767201,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.09
+    },
+    {
+      "t": 1789319767524,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.87
+    },
+    {
+      "t": 1789319767861,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.6
+    },
+    {
+      "t": 1789319768254,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.86
+    },
+    {
+      "t": 1789319768574,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.62
+    },
+    {
+      "t": 1789319768924,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.45
+    },
+    {
+      "t": 1789319769260,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.89
+    },
+    {
+      "t": 1789319769621,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.99
+    },
+    {
+      "t": 1789319770001,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.69
+    },
+    {
+      "t": 1789319770470,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.83
+    },
+    {
+      "t": 1789319770675,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.96
+    },
+    {
+      "t": 1789319771050,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.35
+    },
+    {
+      "t": 1789319771402,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.55
+    },
+    {
+      "t": 1789319771715,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.96
+    },
+    {
+      "t": 1789319772050,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.33
+    },
+    {
+      "t": 1789319772435,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.33
+    },
+    {
+      "t": 1789319774529,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789319775900,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.52
+    },
+    {
+      "t": 1789319776271,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.04
+    },
+    {
+      "t": 1789319776623,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.94
+    },
+    {
+      "t": 1789319776982,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.49
+    },
+    {
+      "t": 1789319777328,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.38
+    },
+    {
+      "t": 1789319777665,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.42
+    },
+    {
+      "t": 1789319778020,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.44
+    },
+    {
+      "t": 1789319778364,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.12
+    },
+    {
+      "t": 1789319778745,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.76
+    },
+    {
+      "t": 1789319779105,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.3
+    },
+    {
+      "t": 1789319779430,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.87
+    },
+    {
+      "t": 1789319779800,
+      "program": "fight",
+      "hp": 19.6,
+      "dist": 1.08
+    },
+    {
+      "t": 1789319780151,
+      "program": "fight",
+      "hp": 19.6,
+      "dist": 1.46
+    },
+    {
+      "t": 1789319780494,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.65
+    },
+    {
+      "t": 1789319780836,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.52
+    },
+    {
+      "t": 1789319781198,
+      "program": "fight",
+      "hp": 19.4,
+      "dist": 1.35
+    },
+    {
+      "t": 1789319781543,
+      "program": "fight",
+      "hp": 19.4,
+      "dist": 1.97
+    },
+    {
+      "t": 1789319781868,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.86
+    },
+    {
+      "t": 1789319782245,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.82
+    },
+    {
+      "t": 1789319782584,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.3
+    },
+    {
+      "t": 1789319784692,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    }
+  ],
+  "sample_count": 243,
+  "hit_events": 48,
+  "note": "Honest harness: PASS requires real hits ([fly] hit after attack) + stability + score>=0.75."
+}

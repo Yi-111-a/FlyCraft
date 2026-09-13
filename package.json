@@ -1,0 +1,19 @@
+{
+  "name": "flycraft",
+  "version": "0.1.0",
+  "description": "FlyCraft Mineflayer live/dry bridge",
+  "private": true,
+  "scripts": {
+    "bridge": "node bridge-js/index.js",
+    "bridge:dry": "node bridge-js/index.js --dry-run",
+    "bridge:live": "node bridge-js/live_bot.js"
+  },
+  "dependencies": {
+    "minecraft-protocol": "1.54.0",
+    "mineflayer": "4.20.0",
+    "mineflayer-pathfinder": "2.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

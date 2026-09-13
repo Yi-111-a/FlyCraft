@@ -1,0 +1,314 @@
+{
+  "at": "2026-09-13T16:52:36.387Z",
+  "duration_s": 60,
+  "pass": false,
+  "score": 0.32,
+  "metrics": {
+    "engage_rate": 0,
+    "engage_trials": 0,
+    "melee_median_ms": 1023,
+    "melee_dps_ok": 1,
+    "hits_landed": 0,
+    "flee_rate": 0,
+    "flee_trials": 8,
+    "wander_ok": 0.7,
+    "stability_ok": 1,
+    "nan_or_invalid_signals": 2,
+    "kicked": false,
+    "sample_count": 0,
+    "attack_events": 4
+  },
+  "thresholds": {
+    "score": 0.75,
+    "hits_landed_min": 4,
+    "engage_min": 0.5,
+    "melee_ok_min": 0.5
+  },
+  "decisions": [
+    {
+      "t": 1789318296389,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318296573,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.96
+    },
+    {
+      "t": 1789318296874,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.92
+    },
+    {
+      "t": 1789318297210,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.67
+    },
+    {
+      "t": 1789318297616,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.43
+    },
+    {
+      "t": 1789318297932,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.11
+    },
+    {
+      "t": 1789318298253,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.87
+    },
+    {
+      "t": 1789318298637,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.78
+    },
+    {
+      "t": 1789318298982,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.49
+    },
+    {
+      "t": 1789318299286,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.6
+    },
+    {
+      "t": 1789318301432,
+      "program": "flee",
+      "hp": 12.9,
+      "dist": null
+    },
+    {
+      "t": 1789318301796,
+      "program": "flee",
+      "hp": 12.9,
+      "dist": null
+    },
+    {
+      "t": 1789318302123,
+      "program": "flee",
+      "hp": 10.2,
+      "dist": null
+    },
+    {
+      "t": 1789318302414,
+      "program": "flee",
+      "hp": 10.2,
+      "dist": null
+    },
+    {
+      "t": 1789318303119,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": null
+    },
+    {
+      "t": 1789318303459,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": null
+    },
+    {
+      "t": 1789318303830,
+      "program": "flee",
+      "hp": 7.5,
+      "dist": null
+    },
+    {
+      "t": 1789318304169,
+      "program": "flee",
+      "hp": 4.8,
+      "dist": null
+    },
+    {
+      "t": 1789318304520,
+      "program": "flee",
+      "hp": 4.8,
+      "dist": null
+    },
+    {
+      "t": 1789318304885,
+      "program": "flee",
+      "hp": 4.8,
+      "dist": null
+    },
+    {
+      "t": 1789318305229,
+      "program": "flee",
+      "hp": 2.1,
+      "dist": null
+    },
+    {
+      "t": 1789318305593,
+      "program": "flee",
+      "hp": 2.1,
+      "dist": null
+    },
+    {
+      "t": 1789318305987,
+      "program": "flee",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318308029,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318310128,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318312246,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318314337,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318316429,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318318527,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318320636,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318322735,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318324850,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318326954,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318329068,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318331170,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318333267,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318335359,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318337456,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318339564,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318341676,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318343769,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318345900,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318347987,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318350066,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318352189,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318354288,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318356380,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    }
+  ],
+  "sample_count": 0,
+  "hit_events": 0,
+  "note": "Honest harness: PASS requires real hits + stability + score>=0.75. Chat-only fight spam fails."
+}

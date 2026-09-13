@@ -1,0 +1,83 @@
+{
+  "at": "2026-09-13T17:13:38.858Z",
+  "kind": "flee_check",
+  "duration_s": 35,
+  "pass": true,
+  "flee_rate": 1,
+  "flee_trials": 7,
+  "flee_wins": 7,
+  "metrics": {
+    "flee_rate": 1,
+    "flee_trials": 7,
+    "flee_wins": 7,
+    "dist_gain_threshold": 1.5,
+    "window_ms": 3000,
+    "low_hp_samples": 91,
+    "flee_program_samples": 99,
+    "sample_count": 144,
+    "decision_count": 100,
+    "nan_or_invalid_signals": 11,
+    "kicked": false,
+    "fly_spawned": true,
+    "hp_target": 6
+  },
+  "trials": [
+    {
+      "t0": 1789319589120,
+      "hp": 4.4,
+      "d0": 1.05,
+      "d1": 10.5,
+      "gain": 9.45,
+      "win": true
+    },
+    {
+      "t0": 1789319602135,
+      "hp": 4.8,
+      "d0": 0.61,
+      "d1": 5.6,
+      "gain": 4.99,
+      "win": true
+    },
+    {
+      "t0": 1789319605153,
+      "hp": 1,
+      "d0": 1.75,
+      "d1": 4.84,
+      "gain": 3.09,
+      "win": true
+    },
+    {
+      "t0": 1789319608168,
+      "hp": 1,
+      "d0": 2.08,
+      "d1": 6.36,
+      "gain": 4.28,
+      "win": true
+    },
+    {
+      "t0": 1789319611180,
+      "hp": 2,
+      "d0": 5.28,
+      "d1": 7.18,
+      "gain": 1.9,
+      "win": true
+    },
+    {
+      "t0": 1789319614092,
+      "hp": 3,
+      "d0": 5.89,
+      "d1": 7.66,
+      "gain": 1.77,
+      "win": true
+    },
+    {
+      "t0": 1789319616958,
+      "hp": 3,
+      "d0": 4.76,
+      "d1": 6.65,
+      "gain": 1.89,
+      "win": true
+    }
+  ],
+  "note": "Dedicated flee validation: low resistance + forced low HP + stronger husks. Success = flee_trials>0 with measured flee_rate (distance +≥1.5 within ~3s)."
+}

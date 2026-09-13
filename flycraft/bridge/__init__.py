@@ -1,0 +1,1 @@
+"""Event/Action bridge schema."""

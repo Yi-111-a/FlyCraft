@@ -1,0 +1,405 @@
+{
+  "name": "tiny_male_cns_inspired",
+  "description": "Synthetic fixture for FlyCraft headless demos; not MaleCNS raw data.",
+  "nodes": [
+    {
+      "id": "VIS_R1",
+      "type": "sensory",
+      "label": "light_on",
+      "role": "sensory"
+    },
+    {
+      "id": "VIS_R2",
+      "type": "sensory",
+      "label": "light_on",
+      "role": "sensory"
+    },
+    {
+      "id": "MECH_1",
+      "type": "sensory",
+      "label": "player_near",
+      "role": "sensory"
+    },
+    {
+      "id": "MECH_2",
+      "type": "sensory",
+      "label": "attack",
+      "role": "sensory"
+    },
+    {
+      "id": "OLF_food",
+      "type": "sensory",
+      "label": "food_near",
+      "role": "sensory"
+    },
+    {
+      "id": "BLANK_in",
+      "type": "sensory",
+      "label": "blank",
+      "role": "sensory"
+    },
+    {
+      "id": "HOSTILE_1",
+      "type": "sensory",
+      "label": "hostile_near",
+      "role": "sensory"
+    },
+    {
+      "id": "IN_01",
+      "type": "interneuron",
+      "label": "in_1",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_02",
+      "type": "interneuron",
+      "label": "in_2",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_03",
+      "type": "interneuron",
+      "label": "in_3",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_04",
+      "type": "interneuron",
+      "label": "in_4",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_05",
+      "type": "interneuron",
+      "label": "in_5",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_06",
+      "type": "interneuron",
+      "label": "in_6",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_07",
+      "type": "interneuron",
+      "label": "in_7",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_08",
+      "type": "interneuron",
+      "label": "in_8",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_09",
+      "type": "interneuron",
+      "label": "in_9",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_10",
+      "type": "interneuron",
+      "label": "in_10",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_11",
+      "type": "interneuron",
+      "label": "in_11",
+      "role": "interneuron"
+    },
+    {
+      "id": "IN_12",
+      "type": "interneuron",
+      "label": "in_12",
+      "role": "interneuron"
+    },
+    {
+      "id": "DN_fight",
+      "type": "motor",
+      "label": "fight",
+      "role": "motor",
+      "program": "fight"
+    },
+    {
+      "id": "DN_flee",
+      "type": "motor",
+      "label": "flee",
+      "role": "motor",
+      "program": "flee"
+    },
+    {
+      "id": "DN_approach",
+      "type": "motor",
+      "label": "approach_food",
+      "role": "motor",
+      "program": "approach_food"
+    },
+    {
+      "id": "DN_turn_L",
+      "type": "motor",
+      "label": "turn_left",
+      "role": "motor",
+      "program": "turn_left"
+    },
+    {
+      "id": "DN_turn_R",
+      "type": "motor",
+      "label": "turn_right",
+      "role": "motor",
+      "program": "turn_right"
+    },
+    {
+      "id": "DN_jump",
+      "type": "motor",
+      "label": "jump",
+      "role": "motor",
+      "program": "jump"
+    },
+    {
+      "id": "DN_idle",
+      "type": "motor",
+      "label": "idle",
+      "role": "motor",
+      "program": "idle"
+    },
+    {
+      "id": "MN_walk",
+      "type": "motor",
+      "label": "approach_food",
+      "role": "motor",
+      "program": "approach_food"
+    },
+    {
+      "id": "MN_escape",
+      "type": "motor",
+      "label": "flee",
+      "role": "motor",
+      "program": "flee"
+    }
+  ],
+  "edges": [
+    {
+      "pre": "VIS_R1",
+      "post": "IN_01",
+      "weight": 0.8
+    },
+    {
+      "pre": "VIS_R1",
+      "post": "IN_02",
+      "weight": 0.4
+    },
+    {
+      "pre": "VIS_R2",
+      "post": "IN_02",
+      "weight": 0.7
+    },
+    {
+      "pre": "VIS_R2",
+      "post": "IN_03",
+      "weight": 0.5
+    },
+    {
+      "pre": "MECH_1",
+      "post": "IN_04",
+      "weight": 0.9
+    },
+    {
+      "pre": "MECH_1",
+      "post": "IN_05",
+      "weight": 0.3
+    },
+    {
+      "pre": "MECH_2",
+      "post": "IN_05",
+      "weight": 1.0
+    },
+    {
+      "pre": "MECH_2",
+      "post": "IN_06",
+      "weight": 0.6
+    },
+    {
+      "pre": "OLF_food",
+      "post": "IN_07",
+      "weight": 0.85
+    },
+    {
+      "pre": "OLF_food",
+      "post": "IN_08",
+      "weight": 0.4
+    },
+    {
+      "pre": "BLANK_in",
+      "post": "IN_09",
+      "weight": 0.2
+    },
+    {
+      "pre": "IN_01",
+      "post": "IN_03",
+      "weight": 0.5
+    },
+    {
+      "pre": "IN_02",
+      "post": "IN_04",
+      "weight": 0.35
+    },
+    {
+      "pre": "IN_03",
+      "post": "IN_10",
+      "weight": 0.6
+    },
+    {
+      "pre": "IN_04",
+      "post": "IN_10",
+      "weight": 0.45
+    },
+    {
+      "pre": "IN_05",
+      "post": "IN_11",
+      "weight": 0.7
+    },
+    {
+      "pre": "IN_06",
+      "post": "IN_11",
+      "weight": 0.55
+    },
+    {
+      "pre": "IN_07",
+      "post": "IN_12",
+      "weight": 0.65
+    },
+    {
+      "pre": "IN_08",
+      "post": "IN_12",
+      "weight": 0.4
+    },
+    {
+      "pre": "IN_09",
+      "post": "IN_01",
+      "weight": 0.15
+    },
+    {
+      "pre": "IN_10",
+      "post": "IN_06",
+      "weight": -0.25
+    },
+    {
+      "pre": "IN_11",
+      "post": "IN_07",
+      "weight": -0.2
+    },
+    {
+      "pre": "IN_12",
+      "post": "IN_05",
+      "weight": 0.3
+    },
+    {
+      "pre": "IN_03",
+      "post": "DN_turn_L",
+      "weight": 0.5
+    },
+    {
+      "pre": "IN_04",
+      "post": "DN_turn_R",
+      "weight": 0.45
+    },
+    {
+      "pre": "IN_05",
+      "post": "DN_flee",
+      "weight": 0.9
+    },
+    {
+      "pre": "IN_06",
+      "post": "MN_escape",
+      "weight": 0.85
+    },
+    {
+      "pre": "IN_06",
+      "post": "DN_jump",
+      "weight": 0.55
+    },
+    {
+      "pre": "IN_07",
+      "post": "DN_approach",
+      "weight": 0.8
+    },
+    {
+      "pre": "IN_08",
+      "post": "MN_walk",
+      "weight": 0.7
+    },
+    {
+      "pre": "IN_09",
+      "post": "DN_idle",
+      "weight": 0.6
+    },
+    {
+      "pre": "IN_10",
+      "post": "DN_turn_L",
+      "weight": 0.35
+    },
+    {
+      "pre": "IN_11",
+      "post": "DN_flee",
+      "weight": 0.75
+    },
+    {
+      "pre": "IN_11",
+      "post": "DN_jump",
+      "weight": 0.4
+    },
+    {
+      "pre": "IN_12",
+      "post": "DN_approach",
+      "weight": 0.7
+    },
+    {
+      "pre": "IN_01",
+      "post": "DN_idle",
+      "weight": 0.25
+    },
+    {
+      "pre": "IN_02",
+      "post": "DN_turn_R",
+      "weight": 0.3
+    },
+    {
+      "pre": "DN_flee",
+      "post": "MN_escape",
+      "weight": 0.2
+    },
+    {
+      "pre": "DN_approach",
+      "post": "MN_walk",
+      "weight": 0.2
+    },
+    {
+      "pre": "DN_idle",
+      "post": "DN_idle",
+      "weight": 0.1
+    },
+    {
+      "pre": "HOSTILE_1",
+      "post": "IN_04",
+      "weight": 1.0
+    },
+    {
+      "pre": "HOSTILE_1",
+      "post": "IN_10",
+      "weight": 0.8
+    },
+    {
+      "pre": "IN_04",
+      "post": "DN_fight",
+      "weight": 0.65
+    },
+    {
+      "pre": "IN_10",
+      "post": "DN_fight",
+      "weight": 1.1
+    }
+  ]
+}

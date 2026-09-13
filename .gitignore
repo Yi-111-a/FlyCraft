@@ -1,0 +1,45 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Node
+node_modules/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Runtime / media (large)
+recordings/
+logs/
+*.log
+*.mp4
+*.webm
+*.mkv
+
+# Harness console dumps (keep JSON results)
+harness/runs/*_console.log
+
+# Large binary weight dumps (keep small artifacts/ configs)
+*.pt
+*.pth
+*.onnx
+*.safetensors
+!artifacts/**/*.json
+!artifacts/**/*.yaml
+!artifacts/**/*.yml
+!artifacts/**/*.txt
+!artifacts/**/*.md
+
+# Secrets / local env
+.env
+.env.*

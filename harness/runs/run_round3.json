@@ -1,0 +1,75 @@
+{
+  "at": "2026-09-13T16:57:55.325Z",
+  "duration_s": 60,
+  "pass": false,
+  "score": 0.84,
+  "metrics": {
+    "engage_rate": 1,
+    "engage_trials": 1,
+    "melee_median_ms": 748,
+    "melee_dps_ok": 1,
+    "hits_landed": 3,
+    "flee_rate": 0.55,
+    "flee_trials": 0,
+    "wander_ok": 0.7,
+    "stability_ok": 1,
+    "nan_or_invalid_signals": 1,
+    "kicked": false,
+    "sample_count": 13,
+    "attack_events": 3,
+    "obs_hurt_events": 0
+  },
+  "thresholds": {
+    "score": 0.75,
+    "hits_landed_min": 4,
+    "engage_min": 0.5,
+    "melee_ok_min": 0.5
+  },
+  "decisions": [
+    {
+      "t": 1789318615323,
+      "program": "idle",
+      "hp": 10.8,
+      "dist": 3
+    },
+    {
+      "t": 1789318615577,
+      "program": "fight",
+      "hp": 12.8,
+      "dist": 3.78
+    },
+    {
+      "t": 1789318615883,
+      "program": "fight",
+      "hp": 12.8,
+      "dist": 2.9
+    },
+    {
+      "t": 1789318616250,
+      "program": "fight",
+      "hp": 12.8,
+      "dist": 2.74
+    },
+    {
+      "t": 1789318616618,
+      "program": "fight",
+      "hp": 13.8,
+      "dist": 1.77
+    },
+    {
+      "t": 1789318616955,
+      "program": "fight",
+      "hp": 13.8,
+      "dist": 2.95
+    },
+    {
+      "t": 1789318617366,
+      "program": "fight",
+      "hp": 13.8,
+      "dist": 1.83
+    }
+  ],
+  "sample_count": 13,
+  "hit_events": 3,
+  "note": "Honest harness: PASS requires real hits ([fly] hit after attack) + stability + score>=0.75."
+}

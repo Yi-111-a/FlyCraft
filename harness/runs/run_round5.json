@@ -1,0 +1,783 @@
+{
+  "at": "2026-09-13T17:00:37.970Z",
+  "duration_s": 60,
+  "pass": true,
+  "score": 0.932,
+  "metrics": {
+    "engage_rate": 1,
+    "engage_trials": 3,
+    "melee_median_ms": 704,
+    "melee_dps_ok": 1,
+    "hits_landed": 47,
+    "flee_rate": 0.55,
+    "flee_trials": 0,
+    "wander_ok": 1,
+    "stability_ok": 1,
+    "nan_or_invalid_signals": 19,
+    "kicked": false,
+    "sample_count": 244,
+    "attack_events": 58,
+    "obs_hurt_events": 0
+  },
+  "thresholds": {
+    "score": 0.75,
+    "hits_landed_min": 4,
+    "engage_min": 0.5,
+    "melee_ok_min": 0.5
+  },
+  "decisions": [
+    {
+      "t": 1789318777969,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318778028,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.13
+    },
+    {
+      "t": 1789318778349,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.94
+    },
+    {
+      "t": 1789318778770,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.86
+    },
+    {
+      "t": 1789318779105,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.62
+    },
+    {
+      "t": 1789318779423,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.09
+    },
+    {
+      "t": 1789318779770,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.41
+    },
+    {
+      "t": 1789318780128,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.24
+    },
+    {
+      "t": 1789318780470,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.67
+    },
+    {
+      "t": 1789318780844,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.54
+    },
+    {
+      "t": 1789318781198,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.94
+    },
+    {
+      "t": 1789318781540,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.97
+    },
+    {
+      "t": 1789318781882,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.4
+    },
+    {
+      "t": 1789318782227,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.03
+    },
+    {
+      "t": 1789318782562,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.73
+    },
+    {
+      "t": 1789318782908,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.64
+    },
+    {
+      "t": 1789318783297,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.46
+    },
+    {
+      "t": 1789318783612,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.25
+    },
+    {
+      "t": 1789318783960,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.47
+    },
+    {
+      "t": 1789318784316,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.6
+    },
+    {
+      "t": 1789318784663,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318786792,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318788532,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.54
+    },
+    {
+      "t": 1789318788860,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.71
+    },
+    {
+      "t": 1789318789231,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.41
+    },
+    {
+      "t": 1789318789574,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.67
+    },
+    {
+      "t": 1789318789945,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.78
+    },
+    {
+      "t": 1789318790298,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.08
+    },
+    {
+      "t": 1789318790619,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.74
+    },
+    {
+      "t": 1789318790964,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.06
+    },
+    {
+      "t": 1789318791324,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.63
+    },
+    {
+      "t": 1789318791705,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.33
+    },
+    {
+      "t": 1789318792039,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.54
+    },
+    {
+      "t": 1789318792403,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.53
+    },
+    {
+      "t": 1789318792734,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.65
+    },
+    {
+      "t": 1789318793121,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.69
+    },
+    {
+      "t": 1789318793423,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.85
+    },
+    {
+      "t": 1789318793783,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.49
+    },
+    {
+      "t": 1789318794121,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.36
+    },
+    {
+      "t": 1789318794477,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.48
+    },
+    {
+      "t": 1789318796578,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318798340,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.98
+    },
+    {
+      "t": 1789318798673,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.98
+    },
+    {
+      "t": 1789318799028,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.28
+    },
+    {
+      "t": 1789318799402,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.19
+    },
+    {
+      "t": 1789318799761,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.27
+    },
+    {
+      "t": 1789318800088,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.94
+    },
+    {
+      "t": 1789318800461,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.68
+    },
+    {
+      "t": 1789318800836,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.91
+    },
+    {
+      "t": 1789318801141,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.68
+    },
+    {
+      "t": 1789318801507,
+      "program": "fight",
+      "hp": 20,
+      "dist": 4.36
+    },
+    {
+      "t": 1789318801836,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.17
+    },
+    {
+      "t": 1789318802230,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.29
+    },
+    {
+      "t": 1789318802539,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.95
+    },
+    {
+      "t": 1789318802881,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.44
+    },
+    {
+      "t": 1789318803242,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.21
+    },
+    {
+      "t": 1789318803596,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.07
+    },
+    {
+      "t": 1789318803932,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.09
+    },
+    {
+      "t": 1789318804296,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.03
+    },
+    {
+      "t": 1789318804633,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.19
+    },
+    {
+      "t": 1789318806736,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318808479,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.89
+    },
+    {
+      "t": 1789318808834,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.52
+    },
+    {
+      "t": 1789318809217,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.58
+    },
+    {
+      "t": 1789318809581,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.53
+    },
+    {
+      "t": 1789318809967,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.85
+    },
+    {
+      "t": 1789318810240,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.48
+    },
+    {
+      "t": 1789318810590,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.04
+    },
+    {
+      "t": 1789318810954,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.8
+    },
+    {
+      "t": 1789318811309,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.31
+    },
+    {
+      "t": 1789318811663,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.96
+    },
+    {
+      "t": 1789318811989,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.35
+    },
+    {
+      "t": 1789318812346,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.98
+    },
+    {
+      "t": 1789318812710,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.21
+    },
+    {
+      "t": 1789318813133,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.36
+    },
+    {
+      "t": 1789318813394,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.15
+    },
+    {
+      "t": 1789318813753,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.85
+    },
+    {
+      "t": 1789318814111,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.81
+    },
+    {
+      "t": 1789318814472,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.18
+    },
+    {
+      "t": 1789318814809,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.08
+    },
+    {
+      "t": 1789318815158,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.24
+    },
+    {
+      "t": 1789318815520,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318817625,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318818334,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.99
+    },
+    {
+      "t": 1789318818677,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.2
+    },
+    {
+      "t": 1789318819005,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.35
+    },
+    {
+      "t": 1789318819358,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.76
+    },
+    {
+      "t": 1789318819736,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.48
+    },
+    {
+      "t": 1789318820057,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.16
+    },
+    {
+      "t": 1789318820426,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.99
+    },
+    {
+      "t": 1789318820761,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.86
+    },
+    {
+      "t": 1789318821113,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.39
+    },
+    {
+      "t": 1789318821501,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.86
+    },
+    {
+      "t": 1789318821814,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.18
+    },
+    {
+      "t": 1789318822170,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.51
+    },
+    {
+      "t": 1789318822515,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.13
+    },
+    {
+      "t": 1789318822874,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2
+    },
+    {
+      "t": 1789318823224,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.01
+    },
+    {
+      "t": 1789318823560,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.64
+    },
+    {
+      "t": 1789318823931,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.08
+    },
+    {
+      "t": 1789318824262,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.19
+    },
+    {
+      "t": 1789318824637,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.45
+    },
+    {
+      "t": 1789318825031,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318827065,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318828473,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.89
+    },
+    {
+      "t": 1789318828843,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.72
+    },
+    {
+      "t": 1789318829180,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.01
+    },
+    {
+      "t": 1789318829526,
+      "program": "fight",
+      "hp": 20,
+      "dist": 3.1
+    },
+    {
+      "t": 1789318829930,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.29
+    },
+    {
+      "t": 1789318830239,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.76
+    },
+    {
+      "t": 1789318830583,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.23
+    },
+    {
+      "t": 1789318830938,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.58
+    },
+    {
+      "t": 1789318831282,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.34
+    },
+    {
+      "t": 1789318831628,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.34
+    },
+    {
+      "t": 1789318832004,
+      "program": "fight",
+      "hp": 20,
+      "dist": 0.94
+    },
+    {
+      "t": 1789318832319,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.51
+    },
+    {
+      "t": 1789318832680,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.7
+    },
+    {
+      "t": 1789318833186,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.57
+    },
+    {
+      "t": 1789318833395,
+      "program": "fight",
+      "hp": 19.6,
+      "dist": 1.39
+    },
+    {
+      "t": 1789318833755,
+      "program": "fight",
+      "hp": 19.6,
+      "dist": 2.29
+    },
+    {
+      "t": 1789318834130,
+      "program": "fight",
+      "hp": 19.6,
+      "dist": 0.92
+    },
+    {
+      "t": 1789318834426,
+      "program": "fight",
+      "hp": 20,
+      "dist": 1.31
+    },
+    {
+      "t": 1789318834774,
+      "program": "fight",
+      "hp": 20,
+      "dist": 2.08
+    },
+    {
+      "t": 1789318835159,
+      "program": "fight",
+      "hp": 20,
+      "dist": null
+    },
+    {
+      "t": 1789318837236,
+      "program": "idle",
+      "hp": 20,
+      "dist": null
+    }
+  ],
+  "sample_count": 244,
+  "hit_events": 47,
+  "note": "Honest harness: PASS requires real hits ([fly] hit after attack) + stability + score>=0.75."
+}

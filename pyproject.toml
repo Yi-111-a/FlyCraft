@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flycraft"
+version = "0.1.0"
+description = "MaleCNS-inspired fruit-fly connectome → Minecraft control MVP (fixture graph)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "FlyCraft Contributors" }]
+dependencies = [
+    "numpy>=1.26",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+flycraft-headless = "flycraft.sim.run_headless:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["flycraft*"]
+
+[tool.setuptools.package-data]
+flycraft = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
