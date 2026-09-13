@@ -38,3 +38,36 @@ class SensoryEncoder:
                 idx = self.graph.id_to_index[sid]
                 self._trace[idx] += cfg.event_gain
         return self._trace.copy()
+
+    def inject_perception(
+        self,
+        current: np.ndarray,
+        *,
+        surrounding_count: int = 0,
+        visible: bool = True,
+        hurt_dir: dict | None = None,
+        hurt: bool = False,
+    ) -> np.ndarray:
+        """Opt4: bias sensory pools with continuous perception channels.
+
+        Uses existing event-labeled sensory neurons as soft channels:
+        - surrounding → hostile_near gain
+        - not visible → blank-ish damp on hostile_near
+        - hurt_dir / hurt → attack sensory gain
+        """
+        out = np.asarray(current, dtype=np.float64).copy()
+        cfg = self.config
+        # surrounding count elevates hostile_near sensors
+        if surrounding_count > 0:
+            gain = cfg.event_gain * min(1.5, 0.15 * surrounding_count)
+            for sid in self.graph.event_to_sensory.get("hostile_near", [])[:32]:
+                out[self.graph.id_to_index[sid]] += gain
+        if not visible:
+            for sid in self.graph.event_to_sensory.get("hostile_near", [])[:16]:
+                idx = self.graph.id_to_index[sid]
+                out[idx] *= 0.7
+        if hurt or hurt_dir:
+            gain = cfg.event_gain * (0.35 if hurt_dir else 0.2)
+            for sid in self.graph.event_to_sensory.get("attack", [])[:32]:
+                out[self.graph.id_to_index[sid]] += gain
+        return out

@@ -252,12 +252,15 @@ function emitTelem () {
   repairEntityPose()
   if (!bot.entity || !finitePos(bot.entity.position)) return
   if (!Number.isFinite(bot.health)) return
-  const hostile = nearestHostile()
-  const d = hostile ? bot.entity.position.distanceTo(hostile.position) : null
+  const hostiles = listHostiles(20)
+  const hostile = hostiles.length ? hostiles[0].entity : null
+  const d = hostiles.length ? hostiles[0].dist : null
+  const surrounding = hostiles.filter(h => h.dist <= 8).length
   const p = bot.entity.position
   console.log(
     `[fly] telem hp=${Number(bot.health).toFixed(1)} x=${p.x.toFixed(2)} y=${p.y.toFixed(2)} z=${p.z.toFixed(2)} ` +
-    `hostileDist=${d == null || !Number.isFinite(d) ? '-' : d.toFixed(2)} program=${lastProgramName}`
+    `hostileDist=${d == null || !Number.isFinite(d) ? '-' : d.toFixed(2)} program=${lastProgramName} ` +
+    `surrounding=${surrounding}`
   )
 }
 

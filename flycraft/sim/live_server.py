@@ -149,8 +149,23 @@ class LiveController:
                 best = h
         return best
 
-    def _neural_scores(self, event: str) -> dict[str, float]:
+    def _neural_scores(
+        self,
+        event: str,
+        *,
+        surrounding_count: int = 0,
+        visible: bool = True,
+        hurt_dir: dict | None = None,
+        hurt: bool = False,
+    ) -> dict[str, float]:
         current = self.encoder.encode(event)
+        current = self.encoder.inject_perception(
+            current,
+            surrounding_count=surrounding_count,
+            visible=visible,
+            hurt_dir=hurt_dir,
+            hurt=hurt,
+        )
         activity = self.dynamics.v.copy()
         substeps = max(1, int(self.cfg.get("loop", {}).get("substeps", 10)))
         decay = float(self.cfg.get("encode", {}).get("decay", 0.85))
@@ -239,7 +254,13 @@ class LiveController:
             event = "blank"
 
         # Opt4: modulate event with perception channels via light current bias after decode floors
-        scores = self._neural_scores(event)
+        scores = self._neural_scores(
+            event,
+            surrounding_count=surrounding,
+            visible=visible,
+            hurt_dir=hurt_dir if isinstance(hurt_dir, dict) else None,
+            hurt=hurt,
+        )
 
         reason = mode
         if mode == "flee":

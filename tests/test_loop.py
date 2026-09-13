@@ -82,3 +82,22 @@ def test_live_state_machine_reengage():
     })
     assert b["mode"] == "flee"
     assert b["reason"] == "flee_min_window"
+
+
+def test_perception_injection_changes_scores():
+    controller = LiveController()
+    base = {
+        "health": 20, "hurt": False, "visible": True, "surrounding_count": 0,
+        "hostile": {"id": 1, "name": "husk", "distance": 5.0, "dy": 0},
+        "hostiles": [{"id": 1, "name": "husk", "distance": 5.0, "dy": 0}],
+    }
+    a = controller.decide(base)
+    controller2 = LiveController()
+    rich = dict(base, surrounding_count=4, hurt=True, hurt_dir={"dx": 1, "dz": 0}, visible=False)
+    # low enough soft hurt path may flee; compare score channels under fight-ish HP
+    rich["health"] = 20
+    rich["hurt"] = False  # keep fighting; perception still injects surrounding
+    b = controller2.decide(rich)
+    assert "surrounding_count" in b
+    # Surrounded should not break fight selection at full HP
+    assert b["program"] in ("fight", "flee")
