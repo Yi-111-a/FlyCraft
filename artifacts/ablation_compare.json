@@ -1,0 +1,210 @@
+{
+  "pass": true,
+  "intact_expected_match": 5,
+  "program_agree_intact_vs_ablated": 6,
+  "seq_len": 6,
+  "mean_fight_margin_intact": 0.4511,
+  "mean_fight_margin_ablated": -0.4881,
+  "fight_margin_drop": 0.9392,
+  "fight_score_intact_step0": 10.396,
+  "fight_score_ablated_step0": 9.2939,
+  "fight_score_drop": 1.1021,
+  "ablated_edges": 67795,
+  "intact": {
+    "label": "intact",
+    "ablation": false,
+    "ablated_edges": 0,
+    "graph_nodes": 8000,
+    "rows": [
+      {
+        "i": 0,
+        "program": "fight",
+        "mode": "fight",
+        "scores": {
+          "flee": 9.9891,
+          "fight": 10.396,
+          "approach_food": 10.0,
+          "turn_left": 10.0,
+          "turn_right": 10.0,
+          "jump": 0.0,
+          "idle": 9.8538
+        },
+        "neural_event": "hostile_near"
+      },
+      {
+        "i": 1,
+        "program": "fight",
+        "mode": "fight",
+        "scores": {
+          "flee": 10.0,
+          "fight": 10.5061,
+          "approach_food": 10.0,
+          "turn_left": 10.0,
+          "turn_right": 10.0,
+          "jump": 0.0,
+          "idle": 9.8597
+        },
+        "neural_event": "hostile_near"
+      },
+      {
+        "i": 2,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 10.4911,
+          "fight": 9.9752,
+          "approach_food": 10.0,
+          "turn_left": 10.0,
+          "turn_right": 10.0,
+          "jump": 0.0,
+          "idle": 9.8598
+        },
+        "neural_event": "attack"
+      },
+      {
+        "i": 3,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 10.5133,
+          "fight": 9.9753,
+          "approach_food": 10.0,
+          "turn_left": 10.0,
+          "turn_right": 10.0,
+          "jump": 0.0,
+          "idle": 9.8599
+        },
+        "neural_event": "attack"
+      },
+      {
+        "i": 4,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 10.2689,
+          "fight": 9.9752,
+          "approach_food": 10.0,
+          "turn_left": 10.0,
+          "turn_right": 10.0,
+          "jump": 0.0,
+          "idle": 9.8598
+        },
+        "neural_event": "attack"
+      },
+      {
+        "i": 5,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 10.18,
+          "fight": 9.9752,
+          "approach_food": 10.0,
+          "turn_left": 10.0,
+          "turn_right": 10.0,
+          "jump": 0.0,
+          "idle": 9.8598
+        },
+        "neural_event": "attack"
+      }
+    ]
+  },
+  "ablated": {
+    "label": "ablated_motor",
+    "ablation": true,
+    "ablated_edges": 67795,
+    "graph_nodes": 8000,
+    "rows": [
+      {
+        "i": 0,
+        "program": "fight",
+        "mode": "fight",
+        "scores": {
+          "flee": 8.5932,
+          "fight": 9.2939,
+          "approach_food": 9.8937,
+          "turn_left": 9.2459,
+          "turn_right": 7.5862,
+          "jump": 0.0,
+          "idle": 8.5989
+        },
+        "neural_event": "hostile_near"
+      },
+      {
+        "i": 1,
+        "program": "fight",
+        "mode": "fight",
+        "scores": {
+          "flee": 8.637,
+          "fight": 9.5266,
+          "approach_food": 9.903,
+          "turn_left": 9.3247,
+          "turn_right": 7.7892,
+          "jump": 0.0,
+          "idle": 8.6642
+        },
+        "neural_event": "hostile_near"
+      },
+      {
+        "i": 2,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 9.1287,
+          "fight": 8.9991,
+          "approach_food": 9.9031,
+          "turn_left": 9.3256,
+          "turn_right": 7.79,
+          "jump": 0.0,
+          "idle": 8.6647
+        },
+        "neural_event": "attack"
+      },
+      {
+        "i": 3,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 9.1504,
+          "fight": 9.0001,
+          "approach_food": 9.9032,
+          "turn_left": 9.3252,
+          "turn_right": 7.7905,
+          "jump": 0.0,
+          "idle": 8.6644
+        },
+        "neural_event": "attack"
+      },
+      {
+        "i": 4,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 8.9063,
+          "fight": 9.0006,
+          "approach_food": 9.9033,
+          "turn_left": 9.3245,
+          "turn_right": 7.7896,
+          "jump": 0.0,
+          "idle": 8.6647
+        },
+        "neural_event": "attack"
+      },
+      {
+        "i": 5,
+        "program": "flee",
+        "mode": "flee",
+        "scores": {
+          "flee": 8.8174,
+          "fight": 9.0006,
+          "approach_food": 9.9029,
+          "turn_left": 9.325,
+          "turn_right": 7.7894,
+          "jump": 0.0,
+          "idle": 8.6647
+        },
+        "neural_event": "attack"
+      }
+    ]
+  },
+  "note": "Motor-edge ablation should reduce fight readout strength / agreement vs intact graph."
+}

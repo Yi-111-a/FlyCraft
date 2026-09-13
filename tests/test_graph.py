@@ -43,3 +43,23 @@ def test_event_and_program_maps():
         assert ev in g.event_to_sensory
     for prog in ("flee", "fight", "approach_food", "turn_left", "turn_right", "jump", "idle"):
         assert prog in g.program_to_motor
+
+
+def test_motor_ablation_reduces_fight_score(monkeypatch):
+    from flycraft.sim.live_server import LiveController
+    import os
+    monkeypatch.delenv("FLYCRAFT_ABLATION", raising=False)
+    intact = LiveController()
+    obs = {
+        "health": 20, "hurt": False, "visible": True, "surrounding_count": 1,
+        "hostile": {"id": 1, "name": "husk", "distance": 3.0, "dy": 0},
+        "hostiles": [{"id": 1, "name": "husk", "distance": 3.0, "dy": 0}],
+    }
+    a = intact.decide(obs)
+    monkeypatch.setenv("FLYCRAFT_ABLATION", "1")
+    monkeypatch.setenv("FLYCRAFT_ABLATION_FRAC", "0.95")
+    ab = LiveController()
+    b = ab.decide(obs)
+    assert ab.ablated_edges > 0
+    # Graph contribution to fight should weaken (floors equal); allow tiny noise
+    assert b["scores"]["fight"] <= a["scores"]["fight"] + 0.05
