@@ -16,7 +16,7 @@
 | `1d2086d` | `opt3(connectome): lower score floors + motor-edge ablation proof` |
 | `f9d5405` | `opt4(perception): visibility, surrounding count, hurt direction` |
 | `3badd9e` | `opt5(eval): multi-mob harness, no-resist survival, flee required` |
-| （本文件提交） | RL 丢弃记录 + harness JSON + 进度文档 |
+| `d5ab76b` | `docs+rl: ONE_SHOT_PROGRESS, discard RL (0.952<0.977), keep opt5 JSON` |
 
 查看：`git -C /workspace/flycraft log --oneline`
 
