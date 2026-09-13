@@ -153,6 +153,28 @@ function nearestHostile () {
   return list.length ? list[0].entity : null
 }
 
+/** Opt2 multi-target: score by distance, sticky id, and elevation preference. */
+function selectTarget (preferId = null) {
+  const list = listHostiles(20)
+  if (!list.length) return null
+  let best = null
+  let bestScore = -1e9
+  for (const h of list) {
+    let score = 40 - h.dist * 2.2
+    if (preferId != null && h.entity.id === preferId) score += 8
+    if (selectedTargetId != null && h.entity.id === selectedTargetId) score += 5
+    if (bot.entity && Number.isFinite(bot.entity.position.y) && Number.isFinite(h.entity.position.y)) {
+      const dy = Math.abs(h.entity.position.y - bot.entity.position.y)
+      score -= dy * 1.5
+    }
+    if (score > bestScore) {
+      bestScore = score
+      best = h
+    }
+  }
+  return best
+}
+
 function clearPathGoal () {
   try { bot.pathfinder.setGoal(null) } catch (_) {}
 }
@@ -298,7 +320,11 @@ function recordHit (entityId, name, dist) {
 async function executeAction (action) {
   repairEntityPose()
   if (!bot.entity || !finitePos(bot.entity.position)) return
-  const hostile = nearestHostile()
+  const preferId = (action.target_id != null) ? action.target_id : selectedTargetId
+  const picked = selectTarget(preferId)
+  const hostile = picked ? picked.entity : null
+  if (hostile) selectedTargetId = hostile.id
+  else selectedTargetId = null
   let program = action.program
   if (program === 'turn_left' || program === 'turn_right' || program === 'jump' ||
       program === 'approach_food') {
@@ -458,16 +484,27 @@ output.on('line', line => {
   executeAction(action).catch(err => console.error(`[fly] action error: ${err.message}`))
 })
 
+let lastHurtFrom = null // {dx,dz,at} Opt4 hurt direction
+
 function sense () {
   if (!spawned || stopping || waiting || !py.stdin.writable) return
   repairEntityPose()
   if (!bot.entity || !finitePos(bot.entity.position)) return
   if (!Number.isFinite(bot.health)) return
-  const hostile = nearestHostile()
-  let dist = null
-  if (hostile) {
-    dist = bot.entity.position.distanceTo(hostile.position)
-    if (!Number.isFinite(dist)) dist = null
+  const hostiles = listHostiles(20)
+  const picked = selectTarget(selectedTargetId)
+  const hostile = picked ? picked.entity : null
+  let dist = picked ? picked.dist : null
+  if (dist != null && !Number.isFinite(dist)) dist = null
+  const surrounding = hostiles.filter(h => h.dist <= 8).length
+  let visible = false
+  if (hostile && dist != null) {
+    const dy = Math.abs(hostile.position.y - bot.entity.position.y)
+    visible = dist <= 14 && dy < 3.5
+  }
+  let hurtDir = null
+  if (lastHurtFrom && Date.now() - lastHurtFrom.at < 1200) {
+    hurtDir = { dx: lastHurtFrom.dx, dz: lastHurtFrom.dz }
   }
   const obs = {
     type: 'observation',
@@ -475,8 +512,22 @@ function sense () {
     health: bot.health,
     food: bot.food,
     hurt: Date.now() < hurtUntil,
+    surrounding_count: surrounding,
+    visible: visible,
+    hurt_dir: hurtDir,
+    hostiles: hostiles.slice(0, 6).map(h => ({
+      id: h.entity.id,
+      name: h.name,
+      distance: Number(h.dist.toFixed(3)),
+      dy: Number((h.entity.position.y - bot.entity.position.y).toFixed(2))
+    })),
     hostile: (hostile && dist != null)
-      ? { id: hostile.id, name: hostile.name, distance: dist }
+      ? {
+          id: hostile.id,
+          name: hostile.name,
+          distance: dist,
+          dy: Number((hostile.position.y - bot.entity.position.y).toFixed(2))
+        }
       : null
   }
   waiting = true
@@ -503,7 +554,17 @@ bot.once('spawn', () => {
 })
 
 bot.on('health', () => {
-  if (bot.health < lastHealth) hurtUntil = Date.now() + HURT_WINDOW_MS
+  if (bot.health < lastHealth) {
+    hurtUntil = Date.now() + HURT_WINDOW_MS
+    const h = nearestHostile()
+    if (h && bot.entity && finitePos(bot.entity.position) && finitePos(h.position)) {
+      lastHurtFrom = {
+        dx: bot.entity.position.x - h.position.x,
+        dz: bot.entity.position.z - h.position.z,
+        at: Date.now()
+      }
+    }
+  }
   lastHealth = bot.health
 })
 
@@ -521,6 +582,14 @@ bot._client.on('damage_event', (data) => {
     const eid = data.entityId
     if (!bot.entity || eid === bot.entity.id) {
       hurtUntil = Date.now() + HURT_WINDOW_MS
+      const h = nearestHostile()
+      if (h && finitePos(bot.entity.position) && finitePos(h.position)) {
+        lastHurtFrom = {
+          dx: bot.entity.position.x - h.position.x,
+          dz: bot.entity.position.z - h.position.z,
+          at: Date.now()
+        }
+      }
       return
     }
     if (Date.now() - lastAttack > 1000) return

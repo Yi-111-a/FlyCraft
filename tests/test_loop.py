@@ -44,3 +44,41 @@ def test_live_controller_fights_and_flees():
     assert flee["program"] == "flee"
     assert flee["neural_event"] == "attack"
     assert any(c["op"] == "attack" for c in fight["commands"])
+
+
+def test_live_multi_target_prefers_closer():
+    controller = LiveController()
+    obs = {
+        "health": 20,
+        "hurt": False,
+        "visible": True,
+        "surrounding_count": 2,
+        "hostile": {"id": 2, "name": "husk", "distance": 7.0, "dy": 0},
+        "hostiles": [
+            {"id": 1, "name": "husk", "distance": 3.0, "dy": 0},
+            {"id": 2, "name": "husk", "distance": 7.0, "dy": 0},
+        ],
+    }
+    out = controller.decide(obs)
+    assert out["program"] == "fight"
+    assert out["target_id"] == 1
+    assert out["mode"] == "fight"
+
+
+def test_live_state_machine_reengage():
+    controller = LiveController()
+    # Force flee
+    a = controller.decide({
+        "health": 5, "hurt": True, "visible": True, "surrounding_count": 1,
+        "hostile": {"id": 1, "name": "husk", "distance": 2.0},
+        "hostiles": [{"id": 1, "name": "husk", "distance": 2.0}],
+    })
+    assert a["mode"] == "flee" and a["program"] == "flee"
+    # Recover HP but still inside flee_min window → stay flee
+    b = controller.decide({
+        "health": 16, "hurt": False, "visible": True, "surrounding_count": 1,
+        "hostile": {"id": 1, "name": "husk", "distance": 4.0},
+        "hostiles": [{"id": 1, "name": "husk", "distance": 4.0}],
+    })
+    assert b["mode"] == "flee"
+    assert b["reason"] == "flee_min_window"
