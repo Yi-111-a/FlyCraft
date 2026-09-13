@@ -31,6 +31,11 @@ const ATTACK_RANGE = 3.2
 const ATTACK_COOLDOWN_MS = 650
 const HURT_WINDOW_MS = 700
 const WANDER_INTERVAL_MS = 2800
+// Opt1 motion: prefer robust control chase; optional limited pathfinder only when far.
+const PATHFINDER_MIN_DIST = 8.5
+const PATHFINDER_COOLDOWN_MS = 4500
+const STUCK_MS = 900
+const USE_LIMITED_PATHFINDER = process.env.FLY_USE_PATHFINDER === '1'
 
 const py = spawn(python, ['-u', '-m', 'flycraft.sim.live_server'], {
   cwd: ROOT,
@@ -85,6 +90,10 @@ let wanderUntil = 0
 let stuckSince = 0
 let lastPos = null
 let lookBusy = false
+let lastPathGoalAt = 0
+let stuckPhase = 0
+let fleeStrafeSign = 1
+let selectedTargetId = null
 
 function finitePos (pos) {
   return pos && Number.isFinite(pos.x) && Number.isFinite(pos.y) && Number.isFinite(pos.z)
@@ -123,12 +132,80 @@ function inArenaEdge (margin = 1.2) {
     p.z <= ARENA.minZ + margin || p.z >= ARENA.maxZ - margin
 }
 
-function nearestHostile () {
-  if (!bot.entity || !finitePos(bot.entity.position)) return null
-  return bot.nearestEntity(entity => {
+function listHostiles (maxDist = 24) {
+  if (!bot.entity || !finitePos(bot.entity.position)) return []
+  const out = []
+  for (const id of Object.keys(bot.entities)) {
+    const entity = bot.entities[id]
+    if (!entity || entity === bot.entity || !finitePos(entity.position)) continue
     const name = String(entity.name || '').toLowerCase()
-    return entity !== bot.entity && HOSTILES.has(name) && finitePos(entity.position)
-  })
+    if (!HOSTILES.has(name)) continue
+    const d = bot.entity.position.distanceTo(entity.position)
+    if (!Number.isFinite(d) || d > maxDist) continue
+    out.push({ entity, dist: d, name })
+  }
+  out.sort((a, b) => a.dist - b.dist)
+  return out
+}
+
+function nearestHostile () {
+  const list = listHostiles()
+  return list.length ? list[0].entity : null
+}
+
+function clearPathGoal () {
+  try { bot.pathfinder.setGoal(null) } catch (_) {}
+}
+
+function maybeLimitedPathNear (target, distance) {
+  if (!USE_LIMITED_PATHFINDER || !target || !finitePos(target.position)) return false
+  if (distance < PATHFINDER_MIN_DIST) {
+    clearPathGoal()
+    return false
+  }
+  const now = Date.now()
+  if (now - lastPathGoalAt < PATHFINDER_COOLDOWN_MS) return true
+  try {
+    const { goals } = require('mineflayer-pathfinder')
+    // Soft GoalNear — only when far; clear often to avoid Paper invalid-move.
+    bot.pathfinder.setGoal(new goals.GoalNear(
+      Math.floor(target.position.x),
+      Math.floor(target.position.y),
+      Math.floor(target.position.z),
+      2
+    ), true)
+    lastPathGoalAt = now
+    return true
+  } catch (_) {
+    clearPathGoal()
+    return false
+  }
+}
+
+function recoverStuck (program) {
+  stuckPhase = (stuckPhase + 1) % 4
+  if (stuckPhase === 0) {
+    bot.setControlState('jump', true)
+    setTimeout(() => bot.setControlState('jump', false), 180)
+  } else if (stuckPhase === 1) {
+    bot.setControlState('left', true)
+    bot.setControlState('forward', true)
+    setTimeout(() => bot.setControlState('left', false), 280)
+  } else if (stuckPhase === 2) {
+    bot.setControlState('right', true)
+    bot.setControlState('back', true)
+    setTimeout(() => {
+      bot.setControlState('right', false)
+      bot.setControlState('back', false)
+    }, 280)
+  } else {
+    // reverse heading briefly
+    if (bot.entity && Number.isFinite(bot.entity.yaw)) {
+      safeLook(bot.entity.yaw + Math.PI, 0).catch(() => {})
+    }
+    bot.setControlState('forward', true)
+  }
+  console.log(`[fly] stuck_recover phase=${stuckPhase} program=${program}`)
 }
 
 function stopManualControls () {
@@ -231,20 +308,29 @@ async function executeAction (action) {
   ensureSword()
 
   if (program === 'fight' && hostile) {
+    clearPathGoal()
     const distance = bot.entity.position.distanceTo(hostile.position)
+    selectedTargetId = hostile.id
     await safeLookAt(hostile.position.offset(0, 1.0, 0))
     if (distance > ATTACK_RANGE) {
-      bot.setControlState('sprint', distance > 4)
-      bot.setControlState('forward', true)
-      bot.setControlState('back', false)
-      bot.setControlState('jump', false)
-      if (inArenaEdge(0.8)) {
-        // nudge toward center instead of running into bars forever
-        const cx = 208 - bot.entity.position.x
-        const cz = 208 - bot.entity.position.z
-        await safeLook(Math.atan2(-cx, -cz), 0)
+      const usingPath = maybeLimitedPathNear(hostile, distance)
+      if (!usingPath) {
+        bot.setControlState('sprint', distance > 4)
+        bot.setControlState('forward', true)
+        bot.setControlState('back', false)
+        bot.setControlState('jump', false)
+        if (inArenaEdge(0.8)) {
+          // nudge toward center instead of running into bars forever
+          const cx = 208 - bot.entity.position.x
+          const cz = 208 - bot.entity.position.z
+          await safeLook(Math.atan2(-cx, -cz), 0)
+        }
+      } else {
+        // pathfinder active for far chase — keep sprint soft
+        bot.setControlState('sprint', false)
       }
     } else {
+      clearPathGoal()
       bot.setControlState('sprint', false)
       bot.setControlState('forward', distance > 2.1)
       bot.setControlState('back', false)
@@ -261,20 +347,35 @@ async function executeAction (action) {
       }
     }
   } else if (program === 'flee') {
-    if (hostile && finitePos(hostile.position)) {
-      const dx = bot.entity.position.x - hostile.position.x
-      const dz = bot.entity.position.z - hostile.position.z
-      const awayLen = Math.hypot(dx, dz) || 0.001
-      // Prefer pure away-from-hostile; only lightly mix center when jammed on bars.
-      let ax = dx / awayLen
-      let az = dz / awayLen
+    clearPathGoal()
+    const hostiles = listHostiles(18)
+    if (hostiles.length) {
+      // Composite flee: average away from nearby threats, prefer closest.
+      let ax = 0
+      let az = 0
+      let wsum = 0
+      for (const h of hostiles.slice(0, 4)) {
+        const dx = bot.entity.position.x - h.entity.position.x
+        const dz = bot.entity.position.z - h.entity.position.z
+        const w = 1.0 / Math.max(0.6, h.dist)
+        ax += (dx / (Math.hypot(dx, dz) || 0.001)) * w
+        az += (dz / (Math.hypot(dx, dz) || 0.001)) * w
+        wsum += w
+      }
+      ax /= wsum || 1
+      az /= wsum || 1
+      // Lateral bias so flee path is not a straight reverse into a wall.
+      const lx = -az * fleeStrafeSign * 0.35
+      const lz = ax * fleeStrafeSign * 0.35
+      ax += lx
+      az += lz
       if (inArenaEdge(1.0)) {
         const cx = 208 - bot.entity.position.x
         const cz = 208 - bot.entity.position.z
         const cl = Math.hypot(cx, cz) || 0.001
-        // Keep majority away-vector so distance can still grow along the wall.
-        ax = ax * 0.7 + (cx / cl) * 0.3
-        az = az * 0.7 + (cz / cl) * 0.3
+        ax = ax * 0.65 + (cx / cl) * 0.35
+        az = az * 0.65 + (cz / cl) * 0.35
+        fleeStrafeSign *= -1
       }
       const yaw = Math.atan2(-ax, -az)
       await safeLook(yaw, 0)
@@ -300,6 +401,7 @@ async function executeAction (action) {
       bot.setControlState('jump', false)
     }
   } else {
+    clearPathGoal()
     const now = Date.now()
     if (now > wanderUntil) {
       wanderYaw = (Math.random() * 2 - 1) * Math.PI
@@ -317,14 +419,13 @@ async function executeAction (action) {
     bot.setControlState('jump', false)
   }
 
-  // stuck detection
+  // Opt1 stuck recovery: jump / strafe / reverse cycle
   if (lastPos && finitePos(bot.entity.position)) {
     const moved = Math.hypot(bot.entity.position.x - lastPos.x, bot.entity.position.z - lastPos.z)
-    if (moved < 0.05 && (program === 'fight' || program === 'flee' || program === 'idle')) {
+    if (moved < 0.06 && (program === 'fight' || program === 'flee' || program === 'idle')) {
       if (!stuckSince) stuckSince = Date.now()
-      if (Date.now() - stuckSince > 1200) {
-        bot.setControlState('jump', true)
-        setTimeout(() => bot.setControlState('jump', false), 200)
+      if (Date.now() - stuckSince > STUCK_MS) {
+        recoverStuck(program)
         stuckSince = Date.now()
       }
     } else stuckSince = 0
