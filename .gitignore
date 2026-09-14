@@ -43,3 +43,12 @@ harness/runs/*_console.log
 # Secrets / local env
 .env
 .env.*
+
+# Keep promo assets in repo (whitelist)
+!media/
+!media/**
+!media/*.mp4
+!media/*.jpg
+!media/*.png
+
+README_DRAFT.md

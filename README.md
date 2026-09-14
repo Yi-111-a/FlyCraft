@@ -1,109 +1,194 @@
-# FlyCraft（果蝇连接组 → Minecraft 控制 MVP）
+<div align="center">
 
-用**稀疏神经图动力学**把 Minecraft 事件映射到脚本化躯体程序的最小可运行原型。默认使用合成小图 fixture，**不下载**完整 MaleCNS 数据，**不依赖**未发布的 NeuroCraft mod，无 Minecraft 也可跑 headless 演示。
+# FlyCraft
 
-> **声明**：本项目为工程原型，**不声称**系统有意识，也**不声称**会学习玩 Minecraft。动力学是固定图上的简单速率/LIF 步进 + 读出，不是训练好的策略网络。
+### 把果蝇大脑，接进《我的世界》
 
-## 架构
+**MaleCNS 连接组驱动的 Minecraft 战斗 NPC**  
+*Fruit-fly connectome → a Minecraft NPC that hunts, fights, and flees*
 
-```
-Minecraft events → sensory encoding → sparse neural dynamics on graph
-    → motor readouts → scripted body programs → Minecraft actions
-```
+<br/>
 
-| 层 | 作用 |
-|----|------|
-| `bridge` | Event / Action 契约（JSON） |
-| `neural/encode` | 事件 → 感觉神经元电流 |
-| `neural/dynamics` | 图上 rate 或 LIF 步进 |
-| `neural/decode` | 运动池 → 躯体程序分数 |
-| `body/programs` | flee / approach_food / turn / jump / idle |
-| `sim` | 闭环与 headless CLI |
+<img src="media/cover.jpg" alt="我把果蝇大脑接入了我的世界" width="820" />
 
-## 快速开始
+<br/>
 
-```bash
-cd /workspace/flycraft
-python3.11 -m venv .venv && source .venv/bin/activate   # 或系统 Python ≥3.11
-pip install -e ".[dev]"
+**我把果蝇大脑接入了我的世界**  
+*果蝇也能玩我的世界了*
 
-# Headless 演示（无需 Minecraft）
-./scripts/run_headless.sh
-# 或
-python -m flycraft.sim.run_headless
+<br/>
 
-# 对照：打乱突触权重
-python -m flycraft.sim.run_headless --shuffle-weights
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.20.4-green.svg)](#)
+[![MaleCNS](https://img.shields.io/badge/Connectome-MaleCNS-purple.svg)](#data--credits--数据与致谢)
+[![Harness](https://img.shields.io/badge/Harness-0.977%20pass-brightgreen.svg)](#实测成绩--benchmark)
 
-# 测试
-pytest -q
-```
-
-Node Mineflayer 桩（干跑，默认不连服）：
-
-```bash
-cd /workspace/flycraft
-npm install   # 可选；干跑可不装 mineflayer
-node bridge-js/index.js --dry-run
-```
-
-## VPS 建议
-
-- **系统**：Ubuntu 22.04/24.04
-- **内存**：16–32 GB（fixture 很小；若日后加载真实 MaleCNS 子图再升配）
-- **CPU**：4+ vCPU
-- **磁盘**：≥40 GB
-- 详见 [docs/vps.md](docs/vps.md)
-
-## 数据与归属
-
-- 默认图：`data/fixtures/tiny_graph.json` — **合成** fixture，角色标签受 MaleCNS 启发，**不是** MaleCNS 原始数据。
-- MaleCNS 数据集许可为 **CC-BY**；若日后接入真实数据，请按 [data/fixtures/README.md](data/fixtures/README.md) 与官方条款署名，并单独下载（本仓库不捆绑大文件）。
-
-## 文档
-
-- [docs/architecture.md](docs/architecture.md) — 架构
-- [docs/roadmap.md](docs/roadmap.md) — 路线图
-- [docs/vps.md](docs/vps.md) — VPS
-- [flycraft/bridge/protocol.md](flycraft/bridge/protocol.md) — 事件/动作协议
-
-## License
-
-本仓库代码：**MIT**（见 [LICENSE](LICENSE)）。MaleCNS 数据（若使用）：**CC-BY**，需单独归属。
+</div>
 
 ---
 
-## English
+## 🎬 Demo · 先看 24 秒
 
-**FlyCraft** is an MIT-licensed MVP that maps Minecraft-like events through a small sparse neural graph to scripted body programs. Default data is a **synthetic** ~20–50 node fixture inspired by MaleCNS role labels — not the full connectome, and not a claim of consciousness or Minecraft learning.
+中文配音 · 平视多机位 · FlyBot 实机 **追 / 打 / 逃**
+
+<div align="center">
+
+<video src="media/flycraft_npc_promo.mp4" controls width="820" poster="media/cover.jpg">
+  <a href="media/flycraft_npc_promo.mp4">Download flycraft_npc_promo.mp4</a>
+</video>
+
+<br/>
+
+<img src="media/preview.jpg" alt="FlyBot in combat" width="820" />
+
+</div>
+
+> 若 GitHub 预览未自动播，点开 [`media/flycraft_npc_promo.mp4`](media/flycraft_npc_promo.mp4) 即可下载观看。
+
+---
+
+## ✨ 一句话
+
+用 **Google / Janelia 开源的 MaleCNS 果蝇连接组**，在 Minecraft 里驱动一个会 **追击、近战、掉血逃跑** 的 NPC。
+
+**One line:** an open **MaleCNS** subgraph steering a live Minecraft NPC that **chases, fights, and flees**.
+
+---
+
+## 🚀 它能做什么 · What you get
+
+<table>
+<tr>
+<td width="50%">
+
+### 中文
+- **连接组在线决策** — 约 8000 节点子图参与打 / 逃 / 游荡
+- **敌对 NPC 手感** — 发现就追，贴身挥砍（约 0.5–1s 冷却）
+- **会逃、会再战** — 受伤或被围拉开，再咬回来
+- **多目标战场** — 多怪之间切换目标
+- **可复现评测** — 自带 harness 打分
+- **可讲科学故事** — 支持通路消融：剪边，战斗力下降
+
+</td>
+<td width="50%">
+
+### English
+- **Connectome-in-the-loop** on a ~8k-node MaleCNS-derived graph
+- **Hostile-NPC combat** — chase → melee → retreat → re-engage
+- **Multi-target** switching under pressure
+- **Benchmark harness** with numeric scores
+- **Ablation-ready** — cut pathways, watch behavior change
+- **Promo-ready** media under `media/`
+
+</td>
+</tr>
+</table>
+
+### 实测成绩 · Benchmark
+
+| 指标 Metric | 成绩 Score |
+|-------------|----------:|
+| Harness 总分 | **0.977** ✅ |
+| 贴身追击 | **100%** |
+| 近战间隔中位 | ~**712 ms** |
+| 60s 命中 | **26** |
+| 低血逃跑 | **8 / 8** |
+| 无抗性存活 | ~**60 s** |
+
+---
+
+## ⚡ 快速开始 · Quick start
+
+<details open>
+<summary><b>① Headless（无需 Minecraft）</b></summary>
 
 ```bash
+python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-python -m flycraft.sim.run_headless
+./scripts/run_headless.sh
 pytest -q
 ```
 
-Optional Mineflayer stub: `node bridge-js/index.js --dry-run` (`MC_HOST` left as TODO). NeuroCraft mod is unreleased — this project does not depend on it.
+</details>
 
-## 真人服 fight / flee 演示
-
-这是**固定合成 fixture 图动力学 + 明示工程规则**的现场演示，不是训练得到的 Minecraft 技能：附近敌对生物且血量正常时选择 `fight`，受伤或血量 ≤ 9 时优先 `flee`。
-
-```bash
-# 终端 1：Paper（server.properties 已开仅本机演示用 RCON）
-cd /workspace/mc-server
-tmux new -s flycraft-server ./start.sh
-# 看到 Done 后用 Ctrl-b d 脱离 tmux
-
-# 终端 2：运行一个 FlyBot，默认 60 秒；自动召唤僵尸并稍后扣血
-cd /workspace/flycraft
-./scripts/run_live_demo.sh
-```
-
-可设置 `LIVE_DURATION=120` 延长，或 `FLYCRAFT_SUMMON=0` 禁用自动测试怪物。单独发命令：
+<details>
+<summary><b>② Live · 接入 Paper 1.20.4</b></summary>
 
 ```bash
-./scripts/rcon.py 'execute at FlyBot run summon zombie ~3 ~ ~ {PersistenceRequired:1b}'
+npm install
+export FLYCRAFT_CONFIG=configs/malecns.yaml
+export MC_HOST=127.0.0.1 MC_PORT=25565 MC_USERNAME=FlyBot
+node bridge-js/live_bot.js
 ```
 
-停止机器人按 `Ctrl-C`；停止服务器：`tmux send-keys -t flycraft-server stop Enter`（或进入 tmux 后输入 `stop`）。服务仅为本机离线模式测试，不应暴露到公网。
+</details>
+
+<details>
+<summary><b>③ 一键评测 Harness</b></summary>
+
+```bash
+bash scripts/run_npc_harness.sh demo
+```
+
+</details>
+
+---
+
+## 🧠 架构 · Architecture
+
+```text
+ Minecraft (Paper 1.20.4)
+           ↕  Mineflayer
+  感知：血量 / 敌对 / 可见性 / 受伤方向
+           ↓
+  MaleCNS 子图动力学  (~8000 nodes)
+           ↓
+     打 · 逃 · 游荡 · 再交战
+           ↓
+   追击 / 挥砍 / 后撤（实机动作）
+```
+
+| 模块 | 作用 |
+|------|------|
+| `flycraft/sim/live_server.py` | 连接组控制器 |
+| `bridge-js/live_bot.js` | 游戏里的手和脚 |
+| `data/malecns/` | 子图与数据说明 |
+| `harness/` | NPC 能力评测 |
+| `media/` | 宣传片与封面 |
+| `docs/` | 计划、进度、架构 |
+
+---
+
+## 📦 Data & credits · 数据与致谢
+
+- 上游：**MaleCNS** — Google Research & HHMI Janelia（**CC-BY**）
+- 本仓库：MaleCNS **衍生子图** + **MIT** 工程代码
+- 口号：*我把果蝇大脑接入了我的世界*
+
+使用与传播时请保留对 **MaleCNS / Google / Janelia** 的署名。
+
+---
+
+## 🔥 What’s next · 下一步更炸
+
+1. **拔线对照** — 完整脑 vs 敲掉通路，角色当场变笨  
+2. **果蝇打靶** — 连接组决定开不开火  
+3. **一窝果蝇 NPC** — 群感围猎  
+
+More in [`docs/`](docs/).
+
+---
+
+## License
+
+**MIT** (code) · MaleCNS data **CC-BY** (attribute Google / Janelia)
+
+---
+
+<div align="center">
+
+### 果蝇大脑 × 我的世界
+
+*Open connectome. Real game. Reactive NPC.*
+
+</div>
